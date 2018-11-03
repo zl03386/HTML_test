@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<form action="./new_file.html" method="get">
+			<fieldset id="fieldset1">
+				<legend>用户信息</legend>
+				<label for="username">用户名：</label>
+				<!-- 文本框 -->
+				<input type="text" id="username"  name="username" value="" /><br>
+				<label for="psw">密   码:</label>
+				<input type="text" id="psw" value="" /><br>
+				<!-- 单选按钮 -->
+				<span>性别:</span>
+				<input type="radio" name="sex" id="male" value="male" checked="checked"/>
+				<label for="male">女</label>
+				<input type="radio" name="sex" id="female" value="female" />
+				<label for="female">男</label><br>
+				<!-- 多选框 -->
+				<span>爱好：</span>
+				<input type="checkbox" name="hobby" value="ks" />看书
+				<input type="checkbox" name="hobby" value="sj" checked="checked"/>睡觉
+				<input type="checkbox" name="hobby" value="xdm" />写代码
+				<input type="checkbox" name="hobby" value="lq" />篮球<br>
+				<!-- 下拉列表 -->
+				<label for="mx">请选择最喜欢的明星:</label><br>
+				<select name="star" id="mx">
+					<optgroup label="男明星">
+						<option value ="ldh">刘德华</option>
+						<option value ="zwj">张卫健</option>
+						<option value ="cl">成龙</option>
+					</optgroup>
+					<optgroup label="女明星">
+						<option value ="lxr1" selected="selected">林心如1</option>
+						<option value ="lxr2">林心如2</option>
+						<option value ="lxr3">林心如3</option>
+					</optgroup>
+				</select><br>
+				<textarea>
+				自我介绍
+				</textarea><br>
+			</fieldset>
+			<input type="submit" name="submit" value="注册" />
+			<input type="reset" value="重置" /><br>
+			<button type="button">按钮</button>
+			<button type="submit">提交</button>
+			<button type="reset">重置</button>
+		</form>
+	</body>
+</html>
+<!-- 
+ form标签:创建一个表单,必须指定action属性，值为提交表单的地址
+ fieldset标签：form标签的子标签，对表单进行分组；
+ legend标签，fieldset子标签，用来指定分组的组名
+ 	<form action="">
+ 		<fieldset>
+ 			<legend>分组1</legend>
+ 		</fieldset>
+ 		
+ 		<fieldset>
+ 			<legend>分组2</legend>
+ 		</fieldset>
+ 	</form>
+
+ 
+label标签	
+ label标签：点击label标签可以选中对应的表单，
+ for属性的值为某个input的id,内容为提示文字
+ <label for="username">用户名：</label>
+ <input type="text" name="username" id="username">
+
+ 
+文本框：
+ <input type="text" value="" name=""/>
+ input的type属性是text，创建一个文本框；
+ 有name属性，name属性值是表单中的数据提交到服务器中时，提交内容的名字,
+ 用户填写的信息会附在url地址的后边,以查询字符串的形式发送给服务器: 
+ 	url地址?查询字符串
+ 格式： 属性名=属性值&属性名=属性值&属性名=属性值&属性名=属性值
+ 在文本框中也可以指定value属性值，该值将会作为文本框的默认值显示
+ 
+单选按钮：
+ <input type="radio" name="sex" value="male" id="male" />
+ input的type属性是radio，创建一个单选按钮;
+ 单选按钮中name属性进行分组，name属性相同是一组按钮；
+ 必须指定一个value属性，value值最终提交给服务器。
+ (需要用户选择但是不需要用户直接填写内容的表单项， 必须指定一个value属性)
+ checked属性：指定默认选中的选项。checked="checked"
+ 
+多选框:
+ 使用input创建一个多选框，它的type属性使用checkbox;
+ name属性值相同为一组，有value值，有checked属性
+ <input type="checkbox" name="hobby" value="lq">篮球
+ <input type="checkbox" name="hobby" value="ymq">羽毛球
+ <input type="checkbox" name="hobby" value="ppq">乒乓球
+ 
+提交按钮:
+ 使用input创建一个提交按钮,它的type属性值是submit
+ <input type="submit" value="注册" />
+ 提交按钮可以将表单中的信息提交给服务器，
+ value属性：指定按钮上的文字
+ 
+重置按钮：
+ <input type="reset" value="重置" />
+ 点击重置按钮以后表单中内容将会恢复为默认值
+ 
+按钮：
+ <input type="button" value="按钮" />
+ 使用input type=button可以用来创建一个单纯的按钮，
+ 这个按钮没有任何功能，只能被点击
+ 
+ 除了使用input，也可以使用button标签来创建按钮
+ 这种方式和使用input类似，只不过由于它是成对出现的标签
+ 使用起来更加的灵活
+ <button type="submit">提交</button>
+ <button type="reset">重置</button>
+ <button type="button">按钮</button>
+ 
+下拉列表
+ 使用select来创建一个下拉列表
+ <select name="star" id="star" multiple="multiple">
+ 	<optgroup label="男明星">
+ 		<option value="hjh">霍建华</option>
+ 		<option value="hg">胡歌</option>
+ 		<option value="ldh">刘德华</option>
+ 	</optgroup>
+ 	<optgroup label="女明星">
+ 		<option value="lxr">林心如</option>
+ 		<option value="fbb">范冰冰</option>
+ 		<option value="lbb">李冰冰</option>
+ 	</optgroup>
+ </select>
+ select标签：创建一个下拉列表，有name属性，属性值为下拉列表名字；
+ 		select标签中multiple="multiple"，多选的下拉列表，默认是单选的 
+ optgroup标签：select子标签，对select分组；
+ 		optgroup标签中，label属性来指定分组的名字
+ option标签：select/optgroup子标签，有value属性。
+ 		option标签中selected="selected"默认项选中状态；
+ 下拉列表的name属性需要指定给select，而value属性需要指定给option
+ // multiple  ['mʌltɪpl]  	adj. 多重的；多样的；许多的
+ 
+ 
+文本域:
+ 使用textarea创建一个文本域
+ 自我介绍  <textarea name="info" id="info" cols="30" rows="10"></textarea>
+ -->
